@@ -40,7 +40,7 @@ public class Initialize extends ParallelCommandGroup {
                     Rotation2d.fromDegrees(180)));
 
     addCommands(
-        //Commands.runOnce(arm::setCalibratedAssumeHomePosition),
+        // Commands.runOnce(arm::setCalibratedAssumeHomePosition),
         Commands.runOnce(
             () -> {
               Pose2d measuredPose = drive.getPose();

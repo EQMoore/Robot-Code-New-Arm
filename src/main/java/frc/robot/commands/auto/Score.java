@@ -30,10 +30,8 @@ public class Score extends SequentialCommandGroup {
 
   private void add(String gamePieceType, String location, IntakeRelease intakeRelease) {
     addCommands(
-        pieceType(gamePieceType, intakeRelease),
-        Commands.parallel(
-            new IntakeCMD(intakeRelease)));
-        // new ReleaseCMD(intakeRelease));
+        pieceType(gamePieceType, intakeRelease), Commands.parallel(new IntakeCMD(intakeRelease)));
+    // new ReleaseCMD(intakeRelease));
   }
 
   // private Command armLocationCommand(String location, Arm arm, IntakeRelease intakeRelease) {

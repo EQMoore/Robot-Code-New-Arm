@@ -15,7 +15,7 @@ public class OnlyScore extends SequentialCommandGroup {
       String gamePieceType,
       String location,
       Drive drive,
-      //Arm arm,
+      // Arm arm,
       IntakeRelease intakeRelease) {
     addCommands(
         new Initialize(aprilTag, relativePosition, drive),
