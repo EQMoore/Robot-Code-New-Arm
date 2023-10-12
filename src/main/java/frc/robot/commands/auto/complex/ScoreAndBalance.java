@@ -24,12 +24,15 @@ public class ScoreAndBalance extends SequentialCommandGroup {
       IntakeRelease intakeRelease) {
     int aprilTag = 7;
     addCommands(
-        new Initialize(aprilTag, relativePosition, drive
+        new Initialize(
+            aprilTag, relativePosition, drive
             // , arm
-         ),
-        new Score(gamePieceType, location,
-        //  arm, 
-         intakeRelease),
+            ),
+        new Score(
+            gamePieceType,
+            location,
+            //  arm,
+            intakeRelease),
         Commands.sequence(
             // new ArmHomeCMD(arm, intakeRelease::wantsCone).withTimeout(3.5),
             Commands.sequence(

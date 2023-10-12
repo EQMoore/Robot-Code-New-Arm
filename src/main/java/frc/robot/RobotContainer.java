@@ -202,8 +202,7 @@ public class RobotContainer {
         "Tag 2/7: Only Score Cone",
         new OnlyScore(7, "Right", "cone", "high", drive, intakeRelease));
     autoChooser.addOption("Tag 2/7: Only Balance", new OnlyBalance("Right", drive));
-    autoChooser.addOption(
-        "Tag 2/7: Back Up and Balance", new BackUpAndBalance("Center", drive));
+    autoChooser.addOption("Tag 2/7: Back Up and Balance", new BackUpAndBalance("Center", drive));
     autoChooser.addOption(
         "Tag 2/7: Score and Balance",
         new ScoreAndBalance("Right", "Cone", "High", drive, intakeRelease));
@@ -215,8 +214,7 @@ public class RobotContainer {
     autoChooser.addOption(
         "Tag 1/8: Only Back Up", new OnlyBackupBumpSide(8, "Left", drive, intakeRelease));
     autoChooser.addOption(
-        "Tag 1/8: Only Score Cone",
-        new OnlyScore(8, "Left", "Cone", "High", drive, intakeRelease));
+        "Tag 1/8: Only Score Cone", new OnlyScore(8, "Left", "Cone", "High", drive, intakeRelease));
     autoChooser.addOption(
         "Tag 1/8: Score Cone and Back Up",
         new ScoreAndBackUpBumpSide(8, "Left", "Cone", "High", drive, intakeRelease));

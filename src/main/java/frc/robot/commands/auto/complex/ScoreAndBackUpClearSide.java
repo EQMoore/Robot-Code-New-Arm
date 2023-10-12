@@ -22,12 +22,15 @@ public class ScoreAndBackUpClearSide extends SequentialCommandGroup {
       // Arm arm,
       IntakeRelease intakeRelease) {
     addCommands(
-        new Initialize(aprilTag, relativePosition, drive
+        new Initialize(
+            aprilTag, relativePosition, drive
             // , arm
-         ),
-        new Score(gamePieceType, location,
+            ),
+        new Score(
+            gamePieceType,
+            location,
             // arm,
-          intakeRelease),
+            intakeRelease),
         Commands.parallel(
             new StraightDriveToPose(Units.inchesToMeters(160.0), 0.0, 0.0, drive)
             // , new ArmHomeCMD(arm, intakeRelease::wantsCone)

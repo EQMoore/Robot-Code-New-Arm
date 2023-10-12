@@ -4,7 +4,6 @@ import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.RobotController;
 import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.util.Color;
-import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.lib.leds.DoubleLEDStrip;
 import frc.lib.leds.LEDManager;
@@ -219,127 +218,127 @@ public class Led2023 extends SubsystemBase {
       //       || intakerelease.getCurrentCommand() instanceof IntakeAndRaise) {
       //     return ColorScheme.AUTO_SCORE;
       //   }
+    }
+
+    // When the arm is calibrating
+
+    // if (arm.getCurrentCommand() instanceof ArmCalibrateCMD) {
+    //   return ColorScheme.CALIBRATING;
+    // }
+
+    // Sets rainbow for 5 secs after calibrating
+
+    // if ((arm.isCalibrated() || !CHECK_ARM_CALIBRATION)
+    //     && !defaultTimer.hasElapsed(RAINBOW_TIME_AFTER_CALIBRATION + 0.02)
+    //     && DriverStation.isTeleopEnabled()
+    //     && !finishedRainbowOnce) {
+    //   if (defaultTimer.hasElapsed(RAINBOW_TIME_AFTER_CALIBRATION) && !finishedRainbowOnce) {
+    //     defaultTimer.reset();
+    //     defaultTimer.stop();
+    //     finishedRainbowOnce = true;
+    //   }
+    //   defaultTimer.start();
+    //   return ColorScheme.DEFAULT;
+    // }
+
+    // When arm is scoring high
+
+    // if (arm.getCurrentCommand() instanceof ArmScoreHighNodeCMD && !armCMDsTimer.hasElapsed(2)) {
+    //   armCMDsTimer.start();
+    //   if (intakerelease.wantsCube() || (intakerelease.haveCube() && !intakerelease.haveCone())) {
+    //     return ColorScheme.CUBE_HIGH;
+    //   } else {
+    //     return ColorScheme.CONE_HIGH;
+    //   }
+    // }
+
+    // When arm is scoring mid node
+
+    // if (arm.getCurrentCommand() instanceof ArmScoreMidNodeCMD && !armCMDsTimer.hasElapsed(2)) {
+    //   armCMDsTimer.start();
+    //   if (intakerelease.wantsCube() || (intakerelease.haveCube() && !intakerelease.haveCone())) {
+    //     return ColorScheme.CUBE_HIGH;
+    //   } else {
+    //     return ColorScheme.CONE_HIGH;
+    //   }
+    // }
+
+    // When arm is scoring hybrid/low node
+
+    // if (arm.getCurrentCommand() instanceof ArmScoreLowNodeCMD && !armCMDsTimer.hasElapsed(2)) {
+    //   armCMDsTimer.start();
+    //   if (intakerelease.wantsCube() || (intakerelease.haveCube() && !intakerelease.haveCone())) {
+    //     return ColorScheme.CUBE_LOW;
+    //   } else {
+    //     return ColorScheme.CONE_LOW;
+    //   }
+    // }
+
+    // When picking up from shelf
+
+    // if (arm.getCurrentCommand() instanceof ArmShelfCMD && !armCMDsTimer.hasElapsed(2)) {
+    //   armCMDsTimer.start();
+    //   return ColorScheme.SHELF;
+    // }
+
+    // When picking up from floor
+
+    // if (arm.getCurrentCommand() instanceof ArmFloorCMD && !armCMDsTimer.hasElapsed(2)) {
+    //   armCMDsTimer.start();
+    //   return ColorScheme.FLOOR;
+    // }
+
+    // If trying to hold on to something
+    if (intakerelease.getCurrentCommand() instanceof HoldCMD) {
+      // If holding on to Cubes
+      if (intakerelease.haveCube() && !intakerelease.haveCone()) {
+        return ColorScheme.HOLD_CUBE;
       }
-
-      // When the arm is calibrating
-
-      // if (arm.getCurrentCommand() instanceof ArmCalibrateCMD) {
-      //   return ColorScheme.CALIBRATING;
-      // }
-
-      // Sets rainbow for 5 secs after calibrating
-
-      // if ((arm.isCalibrated() || !CHECK_ARM_CALIBRATION)
-      //     && !defaultTimer.hasElapsed(RAINBOW_TIME_AFTER_CALIBRATION + 0.02)
-      //     && DriverStation.isTeleopEnabled()
-      //     && !finishedRainbowOnce) {
-      //   if (defaultTimer.hasElapsed(RAINBOW_TIME_AFTER_CALIBRATION) && !finishedRainbowOnce) {
-      //     defaultTimer.reset();
-      //     defaultTimer.stop();
-      //     finishedRainbowOnce = true;
-      //   }
-      //   defaultTimer.start();
-      //   return ColorScheme.DEFAULT;
-      // }
-
-      // When arm is scoring high
-
-      // if (arm.getCurrentCommand() instanceof ArmScoreHighNodeCMD && !armCMDsTimer.hasElapsed(2)) {
-      //   armCMDsTimer.start();
-      //   if (intakerelease.wantsCube() || (intakerelease.haveCube() && !intakerelease.haveCone())) {
-      //     return ColorScheme.CUBE_HIGH;
-      //   } else {
-      //     return ColorScheme.CONE_HIGH;
-      //   }
-      // }
-
-      // When arm is scoring mid node
-
-      // if (arm.getCurrentCommand() instanceof ArmScoreMidNodeCMD && !armCMDsTimer.hasElapsed(2)) {
-      //   armCMDsTimer.start();
-      //   if (intakerelease.wantsCube() || (intakerelease.haveCube() && !intakerelease.haveCone())) {
-      //     return ColorScheme.CUBE_HIGH;
-      //   } else {
-      //     return ColorScheme.CONE_HIGH;
-      //   }
-      // }
-
-      // When arm is scoring hybrid/low node
-
-      // if (arm.getCurrentCommand() instanceof ArmScoreLowNodeCMD && !armCMDsTimer.hasElapsed(2)) {
-      //   armCMDsTimer.start();
-      //   if (intakerelease.wantsCube() || (intakerelease.haveCube() && !intakerelease.haveCone())) {
-      //     return ColorScheme.CUBE_LOW;
-      //   } else {
-      //     return ColorScheme.CONE_LOW;
-      //   }
-      // }
-
-      // When picking up from shelf
-
-      // if (arm.getCurrentCommand() instanceof ArmShelfCMD && !armCMDsTimer.hasElapsed(2)) {
-      //   armCMDsTimer.start();
-      //   return ColorScheme.SHELF;
-      // }
-
-      // When picking up from floor
-
-      // if (arm.getCurrentCommand() instanceof ArmFloorCMD && !armCMDsTimer.hasElapsed(2)) {
-      //   armCMDsTimer.start();
-      //   return ColorScheme.FLOOR;
-      // }
-
-      // If trying to hold on to something
-      if (intakerelease.getCurrentCommand() instanceof HoldCMD) {
-        // If holding on to Cubes
-        if (intakerelease.haveCube() && !intakerelease.haveCone()) {
-          return ColorScheme.HOLD_CUBE;
-        }
-        // If holding on to Cones
-        if (intakerelease.haveCone()) {
-          return ColorScheme.HOLD_CONE;
-        }
+      // If holding on to Cones
+      if (intakerelease.haveCone()) {
+        return ColorScheme.HOLD_CONE;
       }
+    }
 
-      // If trying to intake something
-      if (intakerelease.getCurrentCommand() instanceof IntakeCMD
-          || intakerelease.getCurrentCommand() instanceof IntakeAndRaise) {
-        // If intaking Cubes
-        if (intakerelease.wantsCube()) {
-          return ColorScheme.INTAKE_CUBE;
-        }
-        // If intaking Cones
-        if (intakerelease.wantsCone()) {
-          return ColorScheme.INTAKE_CONE;
-        } else {
-          return ColorScheme.INTAKE_UNKNOWN;
-        }
-      }
-
-      // // If trying to release something
-      // if (intakerelease.getCurrentCommand() instanceof ReleaseCMD) {
-      //   // If releasing Cubes
-      //   if (intakerelease.wantsCube()) {
-      //     return ColorScheme.RELEASE_CUBE;
-      //   }
-      //   // If releasing Cones
-      //   if (intakerelease.wantsCone()) {
-      //     return ColorScheme.RELEASE_CONE;
-      //   } else {
-      //     return ColorScheme.RELEASE_UNKNOWN;
-      //   }
-      // }
-
-      // If we want cubes
+    // If trying to intake something
+    if (intakerelease.getCurrentCommand() instanceof IntakeCMD
+        || intakerelease.getCurrentCommand() instanceof IntakeAndRaise) {
+      // If intaking Cubes
       if (intakerelease.wantsCube()) {
-        return ColorScheme.WANT_CUBE;
+        return ColorScheme.INTAKE_CUBE;
       }
-
-      // If we want cones
+      // If intaking Cones
       if (intakerelease.wantsCone()) {
-        return ColorScheme.WANT_CONE;
+        return ColorScheme.INTAKE_CONE;
+      } else {
+        return ColorScheme.INTAKE_UNKNOWN;
       }
-      return ColorScheme.DEFAULT;
+    }
+
+    // // If trying to release something
+    // if (intakerelease.getCurrentCommand() instanceof ReleaseCMD) {
+    //   // If releasing Cubes
+    //   if (intakerelease.wantsCube()) {
+    //     return ColorScheme.RELEASE_CUBE;
+    //   }
+    //   // If releasing Cones
+    //   if (intakerelease.wantsCone()) {
+    //     return ColorScheme.RELEASE_CONE;
+    //   } else {
+    //     return ColorScheme.RELEASE_UNKNOWN;
+    //   }
+    // }
+
+    // If we want cubes
+    if (intakerelease.wantsCube()) {
+      return ColorScheme.WANT_CUBE;
+    }
+
+    // If we want cones
+    if (intakerelease.wantsCone()) {
+      return ColorScheme.WANT_CONE;
+    }
+    return ColorScheme.DEFAULT;
   }
 
   /**

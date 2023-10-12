@@ -22,13 +22,15 @@ public class ScoreAndBackUpBumpSide extends SequentialCommandGroup {
       // Arm arm,
       IntakeRelease intakeRelease) {
     addCommands(
-        new Initialize(aprilTag, relativePosition,
-            drive
+        new Initialize(
+            aprilTag, relativePosition, drive
             // , arm
-        ),
-        new Score(gamePieceType, location,
+            ),
+        new Score(
+            gamePieceType,
+            location,
             // arm,
-          intakeRelease),
+            intakeRelease),
         Commands.parallel(
             new StraightDriveToPose(Units.inchesToMeters(175.0), 0.0, 0.0, drive)
             // , new ArmHomeCMD(arm, intakeRelease::wantsCone)
